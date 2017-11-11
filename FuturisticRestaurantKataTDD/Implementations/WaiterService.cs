@@ -2,7 +2,7 @@
 
 namespace FuturisticRestaurantKataTDD.Implementations
 {
-    public class WaiterService : IWaiterService
+    public class WaiterService : Observer
     {
         public void activate()
         {

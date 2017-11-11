@@ -12,8 +12,8 @@ namespace FuturisticRestaurantKataTDDUnitTests
         public void WHEN_Gets_Ocuppied_THEN_Waiter_Service_Activates()
         {
             // ARRANGE
-            Mock<IWaiterService> waiter = new Mock<IWaiterService>();
-            Mock<IElectronicMenuService> menu = new Mock<IElectronicMenuService>();
+            Mock<Observer> waiter = new Mock<Observer>();
+            Mock<Observer> menu = new Mock<Observer>();
             Table table = new Table(waiter.Object, menu.Object);            
 
             // ACT
@@ -27,8 +27,8 @@ namespace FuturisticRestaurantKataTDDUnitTests
         public void WHEN_Gets_Ocuppied_THEN_Electronic_Menu_Service_Activates()
         {
             // ARRANGE
-            Mock<IWaiterService> waiter = new Mock<IWaiterService>();
-            Mock<IElectronicMenuService> menu = new Mock<IElectronicMenuService>();
+            Mock<Observer> waiter = new Mock<Observer>();
+            Mock<Observer> menu = new Mock<Observer>();
             Table table = new Table(waiter.Object, menu.Object);
 
             // ACT

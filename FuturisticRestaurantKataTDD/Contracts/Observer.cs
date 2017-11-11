@@ -1,6 +1,6 @@
 ﻿namespace FuturisticRestaurantKataTDD.Contracts
 {
-    public interface IWaiterService
+    public interface Observer
     {
         void activate();
     }

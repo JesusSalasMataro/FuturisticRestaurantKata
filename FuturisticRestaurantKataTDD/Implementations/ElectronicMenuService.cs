@@ -2,7 +2,7 @@
 
 namespace FuturisticRestaurantKataTDD.Implementations
 {
-    public class ElectronicMenuService : IElectronicMenuService
+    public class ElectronicMenuService : Observer
     {
         public void activate()
         {

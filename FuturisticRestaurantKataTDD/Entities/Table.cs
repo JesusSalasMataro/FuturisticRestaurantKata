@@ -3,8 +3,8 @@ namespace FuturisticRestaurantKataTDD
 {
     public class Table
     {
-        private IWaiterService _waiterService;
-        private IElectronicMenuService _menuService;
+        private Observer _waiterService;
+        private Observer _menuService;
 
         private TableStatusEnum _status { get; set; }
 
@@ -26,7 +26,7 @@ namespace FuturisticRestaurantKataTDD
             }
         }
 
-        public Table(IWaiterService waiterService, IElectronicMenuService menuService)
+        public Table(Observer waiterService, Observer menuService)
         {
             _waiterService = waiterService;
             _menuService = menuService;
