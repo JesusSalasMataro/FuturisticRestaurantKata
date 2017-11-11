@@ -66,5 +66,25 @@ namespace FuturisticRestaurantKataTDDUnitTests
             metre.Verify(m => m.activate(It.IsAny<Event>()), Times.Never);
         }
 
+        [TestMethod]
+        public void WHEN_Is_Vip_And_Gets_Ocuppied_THEN_Metre_Service_Activates()
+        {
+            // ARRANGE
+            int tableNumber = 1;
+            Mock<Observer> waiter = new Mock<Observer>();
+            Mock<Observer> menu = new Mock<Observer>();
+            Mock<MetreService> metre = new Mock<MetreService>();
+            Table table = new Table(tableNumber: tableNumber, isVip: true);
+            table.Attach(waiter.Object);
+            table.Attach(menu.Object);
+            table.Attach(metre.Object);
+
+            // ACT
+            table.Status = TableStatusEnum.Occupied;
+
+            // ASSERT
+            metre.Verify(m => m.activate(It.IsAny<Event>()), Times.Once);
+        }
+
     }
 }
