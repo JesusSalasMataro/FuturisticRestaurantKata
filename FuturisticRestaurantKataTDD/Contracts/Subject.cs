@@ -1,4 +1,5 @@
 ﻿using FuturisticRestaurantKataTDD.Contracts;
+using FuturisticRestaurantKataTDD.Implementations;
 using System.Collections.Generic;
 
 namespace FuturisticRestaurantKataTDD.Entities
@@ -21,7 +22,17 @@ namespace FuturisticRestaurantKataTDD.Entities
         {
             foreach (Observer service in _services)
             {
-                service.activate(e);
+                if (service is MetreService)
+                {
+                    if (e.Vip)
+                    {
+                        service.activate(e);
+                    }
+                }
+                else
+                {
+                    service.activate(e);
+                }                
             }
         }
     }

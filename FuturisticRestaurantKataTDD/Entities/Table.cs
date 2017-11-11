@@ -7,6 +7,7 @@ namespace FuturisticRestaurantKataTDD
     public class Table : Subject
     {
         public int Number { get; set; }
+        public bool Vip { get; set; }
 
         private TableStatusEnum _status { get; set; }
 
@@ -22,16 +23,17 @@ namespace FuturisticRestaurantKataTDD
 
                 if (value == TableStatusEnum.Occupied)
                 {
-                    Event e = new Event(tableNumber: Number);
+                    Event e = new Event(tableNumber: Number, isVip: Vip);
                     NotifyAll(e);
                 }
             }
         }
 
-        public Table(int tableNumber)
+        public Table(int tableNumber, bool isVip)
             : base()
         {
             Number = tableNumber;
+            Vip = isVip;
         }
     }
 }
