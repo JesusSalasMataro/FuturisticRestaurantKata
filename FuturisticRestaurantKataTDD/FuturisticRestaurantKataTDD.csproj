@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\Observer.cs" />
-    <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Contracts\Subject.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Implementations\ElectronicMenuService.cs" />
     <Compile Include="Implementations\WaiterService.cs" />
