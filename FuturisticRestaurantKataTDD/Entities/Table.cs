@@ -1,11 +1,11 @@
 ﻿using FuturisticRestaurantKataTDD.Contracts;
+using FuturisticRestaurantKataTDD.Entities;
 using System.Collections.Generic;
+
 namespace FuturisticRestaurantKataTDD
 {
-    public class Table
+    public class Table : Subject
     {
-        private List<Observer> _services;
-
         private TableStatusEnum _status { get; set; }
 
         public TableStatusEnum Status
@@ -22,24 +22,6 @@ namespace FuturisticRestaurantKataTDD
                 {
                     NotifyAll();
                 }
-            }
-        }
-
-        public Table()
-        {
-            _services = new List<Observer>();
-        }
-
-        public void Attach(Observer service) 
-        {
-            _services.Add(service);
-        }
-
-        private void NotifyAll()
-        {
-            foreach (Observer service in _services)
-            {
-                service.activate();
             }
         }
     }
