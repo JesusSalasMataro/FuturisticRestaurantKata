@@ -14,7 +14,9 @@ namespace FuturisticRestaurantKataTDDUnitTests
             // ARRANGE
             Mock<Observer> waiter = new Mock<Observer>();
             Mock<Observer> menu = new Mock<Observer>();
-            Table table = new Table(waiter.Object, menu.Object);            
+            Table table = new Table();
+            table.Attach(waiter.Object);
+            table.Attach(menu.Object);
 
             // ACT
             table.Status = TableStatusEnum.Occupied;
@@ -29,7 +31,9 @@ namespace FuturisticRestaurantKataTDDUnitTests
             // ARRANGE
             Mock<Observer> waiter = new Mock<Observer>();
             Mock<Observer> menu = new Mock<Observer>();
-            Table table = new Table(waiter.Object, menu.Object);
+            Table table = new Table();
+            table.Attach(waiter.Object);
+            table.Attach(menu.Object);
 
             // ACT
             table.Status = TableStatusEnum.Occupied;

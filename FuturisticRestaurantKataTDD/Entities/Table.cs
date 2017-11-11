@@ -1,10 +1,10 @@
 ﻿using FuturisticRestaurantKataTDD.Contracts;
+using System.Collections.Generic;
 namespace FuturisticRestaurantKataTDD
 {
     public class Table
     {
-        private Observer _waiterService;
-        private Observer _menuService;
+        private List<Observer> _services;
 
         private TableStatusEnum _status { get; set; }
 
@@ -20,16 +20,27 @@ namespace FuturisticRestaurantKataTDD
 
                 if (value == TableStatusEnum.Occupied)
                 {
-                    _waiterService.activate();
-                    _menuService.activate();
+                    NotifyAll();
                 }
             }
         }
 
-        public Table(Observer waiterService, Observer menuService)
+        public Table()
         {
-            _waiterService = waiterService;
-            _menuService = menuService;
+            _services = new List<Observer>();
+        }
+
+        public void Attach(Observer service) 
+        {
+            _services.Add(service);
+        }
+
+        private void NotifyAll()
+        {
+            foreach (Observer service in _services)
+            {
+                service.activate();
+            }
         }
     }
 }
