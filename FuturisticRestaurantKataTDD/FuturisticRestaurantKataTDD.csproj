@@ -42,6 +42,8 @@
     <Compile Include="Contracts\IElectronicMenuService.cs" />
     <Compile Include="Contracts\IWaiterService.cs" />
     <Compile Include="Entities\Table.cs" />
+    <Compile Include="Implementations\ElectronicMenuService.cs" />
+    <Compile Include="Implementations\WaiterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\TableStatusEnum.cs" />
   </ItemGroup>
