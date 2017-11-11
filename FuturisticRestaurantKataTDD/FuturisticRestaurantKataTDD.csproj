@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IElectronicMenuService.cs" />
     <Compile Include="Contracts\IWaiterService.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

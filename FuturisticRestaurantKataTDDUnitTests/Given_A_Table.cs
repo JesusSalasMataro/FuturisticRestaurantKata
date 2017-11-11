@@ -13,13 +13,29 @@ namespace FuturisticRestaurantKataTDDUnitTests
         {
             // ARRANGE
             Mock<IWaiterService> waiter = new Mock<IWaiterService>();
-            Table table = new Table(waiter.Object);            
+            Mock<IElectronicMenuService> menu = new Mock<IElectronicMenuService>();
+            Table table = new Table(waiter.Object, menu.Object);            
 
             // ACT
             table.Status = TableStatusEnum.Occupied;
 
             // ASSERT
             waiter.Verify(w => w.activate(), Times.Once);
+        }
+
+        [TestMethod]
+        public void WHEN_Gets_Ocuppied_THEN_Electronic_Menu_Service_Activates()
+        {
+            // ARRANGE
+            Mock<IWaiterService> waiter = new Mock<IWaiterService>();
+            Mock<IElectronicMenuService> menu = new Mock<IElectronicMenuService>();
+            Table table = new Table(waiter.Object, menu.Object);
+
+            // ACT
+            table.Status = TableStatusEnum.Occupied;
+
+            // ASSERT
+            menu.Verify(m => m.activate(), Times.Once);
         }
     }
 }

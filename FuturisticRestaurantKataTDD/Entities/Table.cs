@@ -4,6 +4,7 @@ namespace FuturisticRestaurantKataTDD
     public class Table
     {
         private IWaiterService _waiterService;
+        private IElectronicMenuService _menuService;
 
         private TableStatusEnum _status { get; set; }
 
@@ -20,13 +21,15 @@ namespace FuturisticRestaurantKataTDD
                 if (value == TableStatusEnum.Occupied)
                 {
                     _waiterService.activate();
+                    _menuService.activate();
                 }
             }
         }
 
-        public Table(IWaiterService waiterService)
+        public Table(IWaiterService waiterService, IElectronicMenuService menuService)
         {
             _waiterService = waiterService;
+            _menuService = menuService;
         }
     }
 }
