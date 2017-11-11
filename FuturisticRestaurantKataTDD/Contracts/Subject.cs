@@ -17,11 +17,11 @@ namespace FuturisticRestaurantKataTDD.Entities
             _services.Add(service);
         }
 
-        protected void NotifyAll()
+        protected void NotifyAll(Event e)
         {
             foreach (Observer service in _services)
             {
-                service.activate();
+                service.activate(e);
             }
         }
     }

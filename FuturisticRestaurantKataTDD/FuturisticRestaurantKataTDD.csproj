@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Contracts\Observer.cs" />
     <Compile Include="Contracts\Subject.cs" />
+    <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Implementations\ElectronicMenuService.cs" />
     <Compile Include="Implementations\WaiterService.cs" />

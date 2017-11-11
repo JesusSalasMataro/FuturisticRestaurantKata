@@ -1,5 +1,6 @@
 ﻿using FuturisticRestaurantKataTDD;
 using FuturisticRestaurantKataTDD.Contracts;
+using FuturisticRestaurantKataTDD.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -12,9 +13,10 @@ namespace FuturisticRestaurantKataTDDUnitTests
         public void WHEN_Gets_Ocuppied_THEN_Waiter_Service_Activates()
         {
             // ARRANGE
+            int tableNumber = 1;
             Mock<Observer> waiter = new Mock<Observer>();
             Mock<Observer> menu = new Mock<Observer>();
-            Table table = new Table();
+            Table table = new Table(tableNumber);
             table.Attach(waiter.Object);
             table.Attach(menu.Object);
 
@@ -22,16 +24,17 @@ namespace FuturisticRestaurantKataTDDUnitTests
             table.Status = TableStatusEnum.Occupied;
 
             // ASSERT
-            waiter.Verify(w => w.activate(), Times.Once);
+            waiter.Verify(w => w.activate(It.IsAny<Event>()), Times.Once);
         }
 
         [TestMethod]
         public void WHEN_Gets_Ocuppied_THEN_Electronic_Menu_Service_Activates()
         {
             // ARRANGE
+            int tableNumber = 1;
             Mock<Observer> waiter = new Mock<Observer>();
             Mock<Observer> menu = new Mock<Observer>();
-            Table table = new Table();
+            Table table = new Table(tableNumber);
             table.Attach(waiter.Object);
             table.Attach(menu.Object);
 
@@ -39,7 +42,7 @@ namespace FuturisticRestaurantKataTDDUnitTests
             table.Status = TableStatusEnum.Occupied;
 
             // ASSERT
-            menu.Verify(m => m.activate(), Times.Once);
+            menu.Verify(m => m.activate(It.IsAny<Event>()), Times.Once);
         }
     }
 }

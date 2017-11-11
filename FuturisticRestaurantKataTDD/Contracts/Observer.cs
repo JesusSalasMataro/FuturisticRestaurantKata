@@ -1,7 +1,9 @@
-﻿namespace FuturisticRestaurantKataTDD.Contracts
+﻿using FuturisticRestaurantKataTDD.Entities;
+
+namespace FuturisticRestaurantKataTDD.Contracts
 {
     public interface Observer
     {
-        void activate();
+        void activate(Event e);
     }
 }
